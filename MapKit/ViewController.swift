@@ -6,12 +6,20 @@
 //
 
 import UIKit
+import YandexMapsMobile
+import Foundation
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var mapView: YMKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        mapView.mapWindow.map.move(
+               with: YMKCameraPosition.init(target: YMKPoint(latitude: 55.751574, longitude: 37.573856), zoom: 15, azimuth: 0, tilt: 0),
+               animationType: YMKAnimation(type: YMKAnimationType.smooth, duration: 5),
+               cameraCallback: nil)
+        
     }
 
 
